@@ -20,10 +20,9 @@ class Dispatcher {
 	public function send(Message $message)
 	{
 		try{
-			$this->transportEngine->send($message);
+			return $this->transportEngine->send($message);
 		} catch (\Exception $e ) {
-			return false;
+			throw $e;
 		}
-		return true;
 	}
 }
